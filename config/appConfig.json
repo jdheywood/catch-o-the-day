@@ -1,0 +1,41 @@
+{
+  "directories": {
+    "appDir": "/app",
+    "dataDir": "/data",
+    "publicDir": "/public",
+    "privateDir": "/private"
+  },
+  "app": {
+    "name": "Catch o the Day",
+    "rootPage": "app.js",
+    "dev": "_gen_dev",
+    "devPort": 3030,
+    "dist": "app/public/js/dist/",
+    "distPort": 3030,
+    "liveReloadPort": 1337,
+    "src": "app",
+    "srcPort": "3030",
+    "debugMode": {
+      "dev": true,
+      "staging": false,
+      "live": false
+    },
+    "emailsFromAddress": "hello@jdheywood.com",
+    "newRegistrationAlertsAddress": "hello@jdheywood.com",
+    "resetPasswordRoute": "/reset/",
+    "developmentEnvironmentUrl": "https://catch-o-the-day-dev.herokuapp.com/",
+    "stagingEnvironmentUrl": "https://catch-o-the-day-staging.herokuapp.com/",
+    "liveEnvironmentUrl": "https://catch-o-the-day-live.herokuapp.com/",
+    "customLiveEnvironmentUrl": "https://catch-o-the-day-live.herokuapp.com/",
+    "defaultMeta": {
+      "title": "Catch o the Day",
+      "description": "A simple API and hosted page for an SPA to record and view a fisherman's daily catches",
+      "keywords": "API, Express, Node, Demonstration, Application, Example, Fishy, Catch o the Day"
+    },
+    "defaultContent": {
+      "heading": "Catch o the Day",
+      "subtitle": "Call me Ishmael",
+      "navBack": "/"
+    }
+  }
+}
