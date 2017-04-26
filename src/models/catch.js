@@ -10,8 +10,8 @@ mongoose.Promise = require('q').Promise;
  * LandedSchema, weight of given type of fish
  */
 const LandedSchema = new Schema({
-  weight: String,
-  fish: String
+  fish: String,
+  weight: String
 });
 
 /**
@@ -24,7 +24,7 @@ const CatchSchema = new Schema({
   landed: [LandedSchema]
 }, { collection: 'catches' });
 
-const Landed = mongoose.model('Landed', LandedSchema);
 const Catch = mongoose.model('Catch', CatchSchema);
+const Landed = mongoose.model('Landed', LandedSchema);
 
-module.exports = { Landed, Catch };
+module.exports = { Catch, Landed };

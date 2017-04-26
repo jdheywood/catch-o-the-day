@@ -1,13 +1,28 @@
 'use strict';
 
 import q from 'q';
-import { Landed, Catch } from '../models/catch';
+import { Catch, Landed } from '../models/catch';
 
 /**
  * Catch service
  * @module services/catch
  */
 module.exports = {
+
+  /**
+   * @returns {array} catches - Array of all catches in the system
+   */
+  getAllCatches() {
+    return q(Catch.find({}).sort({ 'date': 'asc'}).exec());
+  },
+
+  /**
+   * @param {string} id - The identifier of the catch to fetch
+   * @returns {object} catch - The catch with the given identifier
+   */
+  getCatchById(id) {
+    return q(Catch.findById(id).exec());
+  },
 
   /**
    * @param {string} fish - The name of the first type of fish landed for the date
@@ -31,10 +46,13 @@ module.exports = {
     }));
   },
 
-  getCatchById(id) {
-    return q(Catch.findById(id).exec());
-  },
-
+  /**
+   *
+   * @param {object} theCatch - The catch to add a landed weight of fish to
+   * @param {string} fish - The name of the type of fish landed
+   * @param {string} weight - The weight of the type of fish landed
+   * @returns {object} catch - The updated catch object
+   */
   addLandedFish(theCatch, fish, weight) {
     let landed = new Landed({
       fish: fish,
@@ -48,8 +66,12 @@ module.exports = {
     }));
   },
 
-  getAllCatches() {
-    return q(Catch.find({}).sort({ 'date': 'asc'}).exec());
+  /**
+   * @param {string} id - The identifier of the catch to fetch
+   * @returns {object} catch - The catch with the given identifier
+   */
+  deleteCatchById(id) {
+    return q(Catch.findByIdAndRemove(id).exec());
   },
 
 };

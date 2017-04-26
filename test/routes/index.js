@@ -10,7 +10,7 @@ const pathHome = '/';
 const pathDebug = '/debug';
 const pathCoffee = '/coffee';
 
-module.exports = function () {
+module.exports = () => {
   describe(pathHome, () => {
     it('should return 200', done => {
       http.get(`${domain}${pathHome}`, res => {
