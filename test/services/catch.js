@@ -54,14 +54,20 @@ module.exports = () => {
       });
     });
     describe('when deleteCatchById is called with the identifier of the newly added catch', () => {
-      it('should delete the catch with the identifier specified', () => {
+      let catchId = '';
+
+      before(() => {
         catchService.getAllCatches().then((catches) => {
-          catchService.deleteCatchById(catches[0].id).then((error, result) => {
-            expect(error).to.equal(null);
-            expect(result).to.not.equal(null);
-            expect(result.id).to.equal(catches[0].id);
-            expect(result).to.have.property('landed').with.lengthOf(2);
-          });
+          catchId = catches[0].id;
+        });
+      });
+
+      it('should delete the catch with the identifier specified', () => {
+        catchService.deleteCatchById(catchId).then((error, result) => {
+          expect(error).to.equal(null);
+          expect(result).to.not.equal(null);
+          expect(result.id).to.equal(catches[0].id);
+          expect(result).to.have.property('landed').with.lengthOf(2);
         });
       });
     });
