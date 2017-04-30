@@ -40,9 +40,11 @@ module.exports = app => {
   app.get('/api/catches/:day', (req, res) => {
     catchService.getCatchByDay(req.params.day).then((theCatch) => {
       if (!theCatch) {
-        let weather = weatherService.getCurrentWeather();
-        catchService.createNewCatch(weather).then((newCatch) => {
-          res.json(newCatch);
+        weatherService.getApiResponse().then((apiResponse) => {
+          let weather = weatherService.getCurrentWeather(apiResponse);
+          catchService.createNewCatch(weather).then((newCatch) => {
+            res.json(newCatch);
+          });
         });
       } else {
         res.json(theCatch);

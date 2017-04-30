@@ -48,9 +48,11 @@ module.exports = function (app) {
   app.get('/api/catches/:day', function (req, res) {
     _catch2.default.getCatchByDay(req.params.day).then(function (theCatch) {
       if (!theCatch) {
-        var weather = _weather2.default.getCurrentWeather();
-        _catch2.default.createNewCatch(weather).then(function (newCatch) {
-          res.json(newCatch);
+        _weather2.default.getApiResponse().then(function (apiResponse) {
+          var weather = _weather2.default.getCurrentWeather(apiResponse);
+          _catch2.default.createNewCatch(weather).then(function (newCatch) {
+            res.json(newCatch);
+          });
         });
       } else {
         res.json(theCatch);
