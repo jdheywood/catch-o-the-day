@@ -33,11 +33,11 @@ module.exports = function (app) {
   /**
    * Add additional weight of landed fish, update the current catch object
    */
-  app.put('/api/catches/:id', function (req, res) {
-    _catch2.default.getCatchById(req.params.id).then(function (theCatch) {
-      _catch2.default.addLandedFish(theCatch, req.body.fish, req.body.weight).then(function (updatedCatch) {
-        _alert2.default.send('', req.body.weight + ' of ' + req.body.fish + ' added to catch ' + updatedCatch._id);
-        res.json(updatedCatch);
+  app.put('/api/catches/:day/landed', function (req, res) {
+    _catch2.default.getCatchByDay(req.params.day).then(function (theCatch) {
+      _catch2.default.addLandedFish(theCatch, req.body.fish, req.body.weight).then(function () {
+        _alert2.default.send('', req.body.weight + ' of ' + req.body.fish + ' added to catch ' + theCatch._id);
+        res.json(theCatch);
       });
     });
   });
