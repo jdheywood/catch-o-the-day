@@ -25,12 +25,35 @@ module.exports = {
   },
 
   /**
+   * @param {string} day - Formatted date string; YYYY-MM-DD
+   * @returns {object} catch - The catch with the given identifier
+   */
+  getCatchByDay(day) {
+    return q(Catch.findOne({day: day}).exec());
+  },
+
+  /**
+   * @param {string} weather - The weather on the day of the catch
+   * @returns {object} catch - The new catch with just day and weather set
+   */
+  createNewCatch(weather) {
+    let newCatch = new Catch({
+      weather: weather
+    });
+    return q(newCatch.save( (error) => {
+      if (error) {
+        console.log(error);
+      }
+    }));
+  },
+
+  /**
    * @param {string} fish - The name of the first type of fish landed for the date
    * @param {string} weight - The weight of the first type of fish landed for the date
    * @param {string} weather - The weather on the day of the catch
-   * @returns {object} catch - The new catch, with the first weight of fish landed, date and weather
+   * @returns {object} catch - The new catch, with the first weight of fish landed, day and weather
    */
-  createNewCatch(fish, weight, weather) {
+  createNewCatchWithLandedFish(fish, weight, weather) {
     let landed = new Landed({
       fish: fish,
       weight: weight
@@ -72,6 +95,13 @@ module.exports = {
    */
   deleteCatchById(id) {
     return q(Catch.findByIdAndRemove(id).exec());
+  },
+
+  /**
+   * @returns {object} result - Presumably an empty array OR the array of all documents just removed?
+   */
+  deleteAllCatches() {
+    return q(Catch.remove({}).exec());
   },
 
 };

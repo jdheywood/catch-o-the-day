@@ -24,6 +24,10 @@ import fileUpload from 'express-fileupload';
  * connect to our document store
  */
 mongoose.connect(environment.getConnectionString());
+
+/**
+ * Initialise our string utils to provide new prototypical functions
+ */
 stringUtils.initialise();
 
 /**
@@ -69,11 +73,13 @@ import catchRoutes from './routes/api/catch';
 import debugRoutes from './routes/debug';
 import fishRoutes from './routes/api/fish';
 import indexRoutes from './routes/index';
+import weatherRoutes from './routes/api/weather';
 
 catchRoutes(app);
 debugRoutes(app);
 fishRoutes(app);
 indexRoutes(app);
+weatherRoutes(app);
 
 /**
  * serve our static content (js, img, css)

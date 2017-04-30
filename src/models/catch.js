@@ -19,7 +19,7 @@ const LandedSchema = new Schema({
  * (date field is defaulted to format YYYY-MM-DD for sorting, day granularity will suffice for our requirements)
  */
 const CatchSchema = new Schema({
-  date: { type: Date, default: moment().format('YYYY-MM-DD') },
+  day: { type: String, default: moment().format('YYYY-MM-DD'), index: {unique: true, dropDups: true} },
   weather: String,
   landed: [LandedSchema]
 }, { collection: 'catches' });

@@ -15,12 +15,54 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 module.exports = {
 
   /**
+   * @returns {array} catches - Array of all catches in the system
+   */
+  getAllCatches: function getAllCatches() {
+    return (0, _q2.default)(_catch.Catch.find({}).sort({ 'date': 'asc' }).exec());
+  },
+
+
+  /**
+   * @param {string} id - The identifier of the catch to fetch
+   * @returns {object} catch - The catch with the given identifier
+   */
+  getCatchById: function getCatchById(id) {
+    return (0, _q2.default)(_catch.Catch.findById(id).exec());
+  },
+
+
+  /**
+   * @param {string} day - Formatted date string; YYYY-MM-DD
+   * @returns {object} catch - The catch with the given identifier
+   */
+  getCatchByDay: function getCatchByDay(day) {
+    return (0, _q2.default)(_catch.Catch.findOne({ day: day }).exec());
+  },
+
+
+  /**
+   * @param {string} weather - The weather on the day of the catch
+   * @returns {object} catch - The new catch with just day and weather set
+   */
+  createNewCatch: function createNewCatch(weather) {
+    var newCatch = new _catch.Catch({
+      weather: weather
+    });
+    return (0, _q2.default)(newCatch.save(function (error) {
+      if (error) {
+        console.log(error);
+      }
+    }));
+  },
+
+
+  /**
    * @param {string} fish - The name of the first type of fish landed for the date
    * @param {string} weight - The weight of the first type of fish landed for the date
    * @param {string} weather - The weather on the day of the catch
-   * @returns {object} catch - The new catch, with the first weight of fish landed, date and weather
+   * @returns {object} catch - The new catch, with the first weight of fish landed, day and weather
    */
-  createNewCatch: function createNewCatch(fish, weight, weather) {
+  createNewCatchWithLandedFish: function createNewCatchWithLandedFish(fish, weight, weather) {
     var landed = new _catch.Landed({
       fish: fish,
       weight: weight
@@ -35,9 +77,15 @@ module.exports = {
       }
     }));
   },
-  getCatchById: function getCatchById(id) {
-    return (0, _q2.default)(_catch.Catch.findById(id).exec());
-  },
+
+
+  /**
+   *
+   * @param {object} theCatch - The catch to add a landed weight of fish to
+   * @param {string} fish - The name of the type of fish landed
+   * @param {string} weight - The weight of the type of fish landed
+   * @returns {object} catch - The updated catch object
+   */
   addLandedFish: function addLandedFish(theCatch, fish, weight) {
     var landed = new _catch.Landed({
       fish: fish,
@@ -50,7 +98,21 @@ module.exports = {
       }
     }));
   },
-  getAllCatches: function getAllCatches() {
-    return (0, _q2.default)(_catch.Catch.find({}).sort({ 'date': 'asc' }).exec());
+
+
+  /**
+   * @param {string} id - The identifier of the catch to fetch
+   * @returns {object} catch - The catch with the given identifier
+   */
+  deleteCatchById: function deleteCatchById(id) {
+    return (0, _q2.default)(_catch.Catch.findByIdAndRemove(id).exec());
+  },
+
+
+  /**
+   * @returns {object} result - Presumably an empty array OR the array of all documents just removed?
+   */
+  deleteAllCatches: function deleteAllCatches() {
+    return (0, _q2.default)(_catch.Catch.remove({}).exec());
   }
 };

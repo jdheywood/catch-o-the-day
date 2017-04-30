@@ -1,7 +1,8 @@
 'use strict';
 
-import catchService from '../../services/catch';
 import alert from '../../utils/alert';
+import catchService from '../../services/catch';
+import weatherService from '../../services/weather';
 
 /**
  * Catch API routes, for use by SPA client application
@@ -14,7 +15,7 @@ module.exports = app => {
    * Create new catch object
    */
   app.post('/api/catches', (req, res) => {
-    catchService.createNewCatch(req.body.fish, req.body.weight).then((newCatch) => {
+    catchService.createNewCatchWithLandedFish(req.body.fish, req.body.weight).then((newCatch) => {
       res.json(newCatch);
     });
   });
@@ -30,6 +31,22 @@ module.exports = app => {
         alert.send('', `${req.body.weight} of ${req.body.fish} added to catch ${updatedCatch._id}`);
         res.json(updatedCatch);
       });
+    });
+  });
+
+  /**
+   * Get a previous catch by day
+   */
+  app.get('/api/catches/:day', (req, res) => {
+    catchService.getCatchByDay(req.params.day).then((theCatch) => {
+      if (!theCatch) {
+        let weather = weatherService.getCurrentWeather();
+        catchService.createNewCatch(weather).then((newCatch) => {
+          res.json(newCatch);
+        });
+      } else {
+        res.json(theCatch);
+      }
     });
   });
 

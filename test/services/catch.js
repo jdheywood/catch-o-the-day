@@ -24,9 +24,9 @@ const landed = {
 
 module.exports = () => {
   describe('catchService', () => {
-    describe('when createNewCatch is called', () => {
+    describe('when createNewCatchWithLandedFish is called', () => {
       it('should return a new catch with the first weight of fish landed', () => {
-        catchService.createNewCatch(expected.landed[0].name, expected.landed[0].weight, expected.weather)
+        catchService.createNewCatchWithLandedFish(expected.landed[0].name, expected.landed[0].weight, expected.weather)
           .then((actual) => {
           expect(actual.weather).to.equal(expected.weather);
           expect(actual.landed[0].name).to.equal(expected.landed[0].name);
@@ -42,15 +42,24 @@ module.exports = () => {
       });
     });
     describe('when addLandedFish is called', () => {
-      it('should add the name and weight of landed fish to the specified catch', () => {
+      let theCatch = null;
+
+      before(() => {
         catchService.getAllCatches().then((catches) => {
-          catchService.addLandedFish(catches[0], landed.fish, landed.weight).then((updatedCatch) => {
+          theCatch = catches[0];
+        });
+        setTimeout(() => { console.log('done')}, 300);
+      });
+
+      it('should add the name and weight of landed fish to the specified catch', () => {
+        if (!!theCatch) {
+          catchService.addLandedFish(theCatch, landed.fish, landed.weight).then((updatedCatch) => {
             expect(updatedCatch).to.not.equal(null);
             expect(updatedCatch).to.have.property('landed').with.lengthOf(2);
             expect(updatedCatch.landed[1].fish).to.equal(landed.fish);
             expect(updatedCatch.landed[1].weight).to.equal(landed.weight);
           });
-        });
+        }
       });
     });
     describe('when deleteCatchById is called with the identifier of the newly added catch', () => {
@@ -71,6 +80,13 @@ module.exports = () => {
         });
       });
     });
+
+    after(() => {
+      catchService.deleteAllCatches().then((error, result) => {
+        expect(error).to.equal(null);
+        expect(result).to.not.equal(null);
+      });
+    })
   });
 
 };

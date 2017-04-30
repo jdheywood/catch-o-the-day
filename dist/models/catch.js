@@ -19,8 +19,8 @@ _mongoose2.default.Promise = require('q').Promise;
  * LandedSchema, weight of given type of fish
  */
 var LandedSchema = new Schema({
-  weight: String,
-  fish: String
+  fish: String,
+  weight: String
 });
 
 /**
@@ -28,12 +28,12 @@ var LandedSchema = new Schema({
  * (date field is defaulted to format YYYY-MM-DD for sorting, day granularity will suffice for our requirements)
  */
 var CatchSchema = new Schema({
-  date: { type: Date, default: (0, _moment2.default)().format('YYYY-MM-DD') },
+  day: { type: String, default: (0, _moment2.default)().format('YYYY-MM-DD'), index: { unique: true, dropDups: true } },
   weather: String,
   landed: [LandedSchema]
 }, { collection: 'catches' });
 
-var Landed = _mongoose2.default.model('Landed', LandedSchema);
 var Catch = _mongoose2.default.model('Catch', CatchSchema);
+var Landed = _mongoose2.default.model('Landed', LandedSchema);
 
-module.exports = { Landed: Landed, Catch: Catch };
+module.exports = { Catch: Catch, Landed: Landed };

@@ -39,6 +39,14 @@ module.exports = {
   },
 
   /**
+   * Returns the weather service api key
+   * @returns {string} - apiKey for use when retrieving weather data
+   */
+  getWeatherServiceApiKey() {
+    return !!process.env.WEATHER_API_KEY ? process.env.WEATHER_API_KEY : secretConfig.weather.apiKey;
+  },
+
+  /**
    * Returns flag indicating whether we are in debug mode or not, used throughout app to show debug details and
    * functionality in runing application to assist during development
    * @returns {boolean} debugMode - true or false indicating debug mode on or off

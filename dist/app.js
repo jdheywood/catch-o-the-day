@@ -76,6 +76,10 @@ var _index = require('./routes/index');
 
 var _index2 = _interopRequireDefault(_index);
 
+var _weather = require('./routes/api/weather');
+
+var _weather2 = _interopRequireDefault(_weather);
+
 var _error = require('./routes/error');
 
 var _error2 = _interopRequireDefault(_error);
@@ -89,6 +93,10 @@ console.log('I am listening to this port: http://localhost:%s', PORT_LISTENER);
  * connect to our document store
  */
 _mongoose2.default.connect(_environment2.default.getConnectionString());
+
+/**
+ * Initialise our string utils to provide new prototypical functions
+ */
 _string2.default.initialise();
 
 /**
@@ -136,6 +144,7 @@ app.use((0, _expressFileupload2.default)({ safeFileNames: false }));
 (0, _debug2.default)(app);
 (0, _fish2.default)(app);
 (0, _index2.default)(app);
+(0, _weather2.default)(app);
 
 /**
  * serve our static content (js, img, css)
