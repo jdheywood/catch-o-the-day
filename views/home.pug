@@ -16,13 +16,17 @@ html(lang='en')
       .row.content
         // can use as target to inject client spa, replacing the loading gif etc below...
         .col-md-12.target
-          h2.access-heading
-            | Call me Ishmael
-          h3.debug
-            | #{environmentName}
-          img(src='/img/loading.gif', class="loading")
+          app-root
+            h3.debug
+              | #{environmentName}
+            img(src='/img/loading.gif', class="loading")
 
     include partials/footer
 
     script(src='/js/lib/jquery-3.0.0.min.js')
     script(src='/js/lib/bootstrap.min.js')
+    script(src='/js/dist/inline.bundle.js')
+    script(src='/js/dist/polyfills.bundle.js')
+    script(src='/js/dist/styles.bundle.js')
+    script(src='/js/dist/vendor.bundle.js')
+    script(src='/js/dist/main.bundle.js')

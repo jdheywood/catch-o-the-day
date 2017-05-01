@@ -369,7 +369,7 @@ body {
 }
 .footer {
   position: absolute;
-  bottom: -5%;
+  bottom: -15%;
   width: 100%;
   background-color: #ffffff;
 }
@@ -394,6 +394,15 @@ ul.footer-links {
 
 ul.footer-links li a {
   color: #B2B2B2;
+}
+
+.footer.host {
+  border:none;
+  bottom: 0%;
+}
+
+.footer.host:before {
+  box-shadow: none;
 }
 
 /* Admin pages
