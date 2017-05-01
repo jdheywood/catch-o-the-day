@@ -34,4 +34,4 @@ ES6 syntax support and tooling via [Babel]
 
 ## Release History
 
-Yet to be released...
+v1.0.0 released 1st May 2017

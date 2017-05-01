@@ -836,7 +836,7 @@ var DataService = (function () {
     function DataService(http) {
         this.http = http;
         // private instance variables to hold url & paths of our api
-        this.apiRootUrl = 'http://localhost:3030/api';
+        this.apiRootUrl = 'https://catch-o-the-day.herokuapp.com/api';
         this.apiPathFish = '/fish';
         this.apiPathCatch = '/catches';
         this.apiPathLanded = '/landed';

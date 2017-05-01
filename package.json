@@ -1,6 +1,6 @@
 {
   "name": "catch-o-the-day",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A simple API and hosted page for an SPA to record and view a fisherman's daily catches",
   "repository": {
     "type": "git",
