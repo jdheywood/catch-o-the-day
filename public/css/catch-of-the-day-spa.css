@@ -87,7 +87,7 @@ body {
 
 .catch-of-the-day-app select {
 	width: 100%;
-	font-size: 30px;
+	font-size: 24px;
 	border-style: dotted;
 	padding: 10px;
 	color: rgba(77, 77, 77, 0.50);
@@ -101,6 +101,11 @@ body {
 	padding: 10px;
 	color: rgba(77, 77, 77, 0.50);
 	text-align: center;
+}
+
+label.weather {
+	font-size: 16px;
+	font-weight: 400;
 }
 
 .new-landed,
@@ -126,7 +131,7 @@ body {
 	padding: 16px 16px 16px 60px;
 	border: none;
 	background: rgba(0, 0, 0, 0.003);
-	box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+	box-shadow: inset 0 -2px 1px rgba(0,0,0,0.05);
 }
 
 .main {

@@ -751,7 +751,7 @@ module.exports = "<section class=\"catch-of-the-day-app\">\n  <app-my-header [fi
 /***/ 276:
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"main\" *ngIf=\"dailyCatch\">\n  <h2>Today's weather: {{dailyCatch.weather}}</h2>\n</section>\n<section class=\"main\" *ngIf=\"dailyCatch && dailyCatch.landed.length > 0\">\n  <ul class=\"landed-list\">\n    <li *ngFor=\"let landed of dailyCatch.landed\" [class.completed]=\"false\">\n      <app-landed\n        [landed]=\"landed\"\n        (toggleSold)=\"onToggleLandedSold($event)\"\n        (remove)=\"onRemoveLanded($event)\"></app-landed>\n    </li>\n  </ul>\n</section>\n"
+module.exports = "<section class=\"main\" *ngIf=\"dailyCatch && dailyCatch.landed.length > 0\">\n  <ul class=\"landed-list\">\n    <li *ngFor=\"let landed of dailyCatch.landed\" [class.completed]=\"false\">\n      <app-landed\n        [landed]=\"landed\"\n        (toggleSold)=\"onToggleLandedSold($event)\"\n        (remove)=\"onRemoveLanded($event)\"></app-landed>\n    </li>\n  </ul>\n</section>\n<section class=\"main\" *ngIf=\"dailyCatch\">\n  <label class=\"weather\">Today's weather: {{dailyCatch.weather}}</label>\n</section>"
 
 /***/ }),
 
