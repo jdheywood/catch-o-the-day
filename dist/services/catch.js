@@ -1,5 +1,9 @@
 'use strict';
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 var _q = require('q');
 
 var _q2 = _interopRequireDefault(_q);
@@ -114,5 +118,41 @@ module.exports = {
    */
   deleteAllCatches: function deleteAllCatches() {
     return (0, _q2.default)(_catch.Catch.remove({}).exec());
+  },
+
+
+  /**
+   * @param {object} dailyCatch - The daily catch to remove the landed entry from
+   * @param {string} landedId - The identifier of the landed entry to remove
+   * @returns {object} catch - The catch with the specified landed entry removed
+   */
+  deleteLandedByCatchAndLandedId: function deleteLandedByCatchAndLandedId(dailyCatch, landedId) {
+    dailyCatch.landed = _underscore2.default.reject(dailyCatch.landed, function (landed) {
+      return landed._id == landedId;
+    });
+    return (0, _q2.default)(dailyCatch.save(function (error) {
+      if (error) {
+        console.log(error);
+      }
+    }));
+  },
+
+
+  /**
+   * @param {object} dailyCatch - The daily catch containing the landed entry to update
+   * @param {string} landedId - The identifier of the landed entry to update, currently only support updating the boolean sold property
+   * @returns {object} catch - The catch with the specified landed entry updated
+   */
+  updateLandedByCatchAndLandedId: function updateLandedByCatchAndLandedId(dailyCatch, landedId) {
+    _underscore2.default.each(dailyCatch.landed, function (landed) {
+      if (landed._id == landedId) {
+        landed.sold = !landed.sold;
+      }
+    });
+    return (0, _q2.default)(dailyCatch.save(function (error) {
+      if (error) {
+        console.log(error);
+      }
+    }));
   }
 };

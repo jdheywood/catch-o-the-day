@@ -1,5 +1,6 @@
 'use strict';
 
+import _ from 'underscore';
 import q from 'q';
 import { Catch, Landed } from '../models/catch';
 
@@ -102,6 +103,40 @@ module.exports = {
    */
   deleteAllCatches() {
     return q(Catch.remove({}).exec());
+  },
+
+  /**
+   * @param {object} dailyCatch - The daily catch to remove the landed entry from
+   * @param {string} landedId - The identifier of the landed entry to remove
+   * @returns {object} catch - The catch with the specified landed entry removed
+   */
+  deleteLandedByCatchAndLandedId(dailyCatch, landedId) {
+    dailyCatch.landed = _.reject(dailyCatch.landed, (landed) => {
+      return landed._id == landedId;
+    });
+    return q(dailyCatch.save( (error) => {
+      if (error) {
+        console.log(error);
+      }
+    }));
+  },
+
+  /**
+   * @param {object} dailyCatch - The daily catch containing the landed entry to update
+   * @param {string} landedId - The identifier of the landed entry to update, currently only support updating the boolean sold property
+   * @returns {object} catch - The catch with the specified landed entry updated
+   */
+  updateLandedByCatchAndLandedId(dailyCatch, landedId) {
+    _.each(dailyCatch.landed, (landed) => {
+      if (landed._id == landedId) {
+        landed.sold = !landed.sold;
+      }
+    });
+    return q(dailyCatch.save( (error) => {
+      if (error) {
+        console.log(error);
+      }
+    }));
   },
 
 };

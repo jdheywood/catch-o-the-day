@@ -11,7 +11,8 @@ mongoose.Promise = require('q').Promise;
  */
 const LandedSchema = new Schema({
   fish: String,
-  weight: String
+  weight: String,
+  sold: { type: Boolean, default: false }
 });
 
 /**

@@ -20,7 +20,8 @@ _mongoose2.default.Promise = require('q').Promise;
  */
 var LandedSchema = new Schema({
   fish: String,
-  weight: String
+  weight: String,
+  sold: { type: Boolean, default: false }
 });
 
 /**
