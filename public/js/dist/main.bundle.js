@@ -20,9 +20,9 @@ webpackEmptyContext.id = 192;
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(209);
 
 
 
@@ -35,7 +35,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 204:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -74,25 +74,29 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.onAddLanded = function (landed) {
         var _this = this;
-        console.log('emitted event landFish caught');
         this.dataService
             .landFish(landed)
             .subscribe(function (data) { return _this.dailyCatch = data; });
     };
     AppComponent.prototype.onToggleLandedSold = function (landed) {
-        console.log('emitted event toggleLandedSold caught');
-        this.dataService.toggleLandedSold(landed);
+        var _this = this;
+        this.dataService
+            .toggleLandedSold(landed)
+            .subscribe(function (data) { return _this.dailyCatch = data; });
     };
     AppComponent.prototype.onRemoveLanded = function (landed) {
-        this.dataService.deleteLandedById(landed.id);
+        var _this = this;
+        this.dataService
+            .deleteLandedById(landed._id)
+            .subscribe(function (data) { return _this.dailyCatch = data; });
     };
     return AppComponent;
 }());
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'app-root',
-        template: __webpack_require__(277),
-        styles: [__webpack_require__(269)],
+        template: __webpack_require__(275),
+        styles: [__webpack_require__(267)],
         providers: [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]) === "function" && _a || Object])
@@ -103,20 +107,20 @@ var _a;
 
 /***/ }),
 
-/***/ 205:
+/***/ 204:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__daily_catch_daily_catch_component__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__my_footer_my_footer_component__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__my_header_my_header_component__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__daily_catch_daily_catch_component__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__my_footer_my_footer_component__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__my_header_my_header_component__ = __webpack_require__(208);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__data_service__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__landed_landed_component__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__landed_landed_component__ = __webpack_require__(206);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -162,12 +166,12 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 206:
+/***/ 205:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__daily_catch__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__daily_catch__ = __webpack_require__(53);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DailyCatchComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -208,8 +212,8 @@ __decorate([
 DailyCatchComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'app-daily-catch',
-        template: __webpack_require__(278),
-        styles: [__webpack_require__(270)]
+        template: __webpack_require__(276),
+        styles: [__webpack_require__(268)]
     }),
     __metadata("design:paramtypes", [])
 ], DailyCatchComponent);
@@ -219,7 +223,7 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 207:
+/***/ 206:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -265,8 +269,8 @@ __decorate([
 LandedComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'app-landed',
-        template: __webpack_require__(279),
-        styles: [__webpack_require__(271)]
+        template: __webpack_require__(277),
+        styles: [__webpack_require__(269)]
     }),
     __metadata("design:paramtypes", [])
 ], LandedComponent);
@@ -276,12 +280,12 @@ var _a, _b, _c;
 
 /***/ }),
 
-/***/ 208:
+/***/ 207:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__daily_catch__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__daily_catch__ = __webpack_require__(53);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyFooterComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -311,8 +315,8 @@ __decorate([
 MyFooterComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'app-my-footer',
-        template: __webpack_require__(280),
-        styles: [__webpack_require__(272)]
+        template: __webpack_require__(278),
+        styles: [__webpack_require__(270)]
     }),
     __metadata("design:paramtypes", [])
 ], MyFooterComponent);
@@ -322,7 +326,7 @@ var _a;
 
 /***/ }),
 
-/***/ 209:
+/***/ 208:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -347,12 +351,9 @@ var MyHeaderComponent = (function () {
     }
     MyHeaderComponent.prototype.changeFish = function (value) {
         this.selectedFish = value;
-        console.log(this.selectedFish);
-        console.log(this.newLanded);
     };
     MyHeaderComponent.prototype.addLanded = function () {
         this.add.emit(this.newLanded);
-        console.log(this.newLanded);
         this.newLanded = new __WEBPACK_IMPORTED_MODULE_1__landed__["a" /* Landed */]();
     };
     return MyHeaderComponent;
@@ -368,8 +369,8 @@ __decorate([
 MyHeaderComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
         selector: 'app-my-header',
-        template: __webpack_require__(281),
-        styles: [__webpack_require__(273)]
+        template: __webpack_require__(279),
+        styles: [__webpack_require__(271)]
     }),
     __metadata("design:paramtypes", [])
 ], MyHeaderComponent);
@@ -379,7 +380,7 @@ var _a;
 
 /***/ }),
 
-/***/ 210:
+/***/ 209:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -396,10 +397,46 @@ var environment = {
 
 /***/ }),
 
+/***/ 267:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(7)();
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 268:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(7)();
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
 /***/ 269:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)();
+exports = module.exports = __webpack_require__(7)();
 // imports
 
 
@@ -417,7 +454,7 @@ module.exports = module.exports.toString();
 /***/ 270:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)();
+exports = module.exports = __webpack_require__(7)();
 // imports
 
 
@@ -435,25 +472,7 @@ module.exports = module.exports.toString();
 /***/ 271:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)();
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ 272:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(6)();
+exports = module.exports = __webpack_require__(7)();
 // imports
 
 
@@ -469,24 +488,6 @@ module.exports = module.exports.toString();
 /***/ }),
 
 /***/ 273:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(6)();
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ 275:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -735,47 +736,55 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 275;
+webpackContext.id = 273;
 
+
+/***/ }),
+
+/***/ 275:
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"catch-of-the-day-app\">\n  <app-my-header [fish]=\"fish\" (add)=\"onAddLanded($event)\"></app-my-header>\n  <app-daily-catch [dailyCatch]=\"dailyCatch\" (toggleSold)=\"onToggleLandedSold($event)\"\n                 (remove)=\"onRemoveLanded($event)\"></app-daily-catch>\n  <app-my-footer [dailyCatch]=\"dailyCatch\"></app-my-footer>\n</section>\n"
+
+/***/ }),
+
+/***/ 276:
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"main\" *ngIf=\"dailyCatch\">\n  <h2>Today's weather: {{dailyCatch.weather}}</h2>\n</section>\n<section class=\"main\" *ngIf=\"dailyCatch && dailyCatch.landed.length > 0\">\n  <ul class=\"landed-list\">\n    <li *ngFor=\"let landed of dailyCatch.landed\" [class.completed]=\"false\">\n      <app-landed\n        [landed]=\"landed\"\n        (toggleSold)=\"onToggleLandedSold($event)\"\n        (remove)=\"onRemoveLanded($event)\"></app-landed>\n    </li>\n  </ul>\n</section>\n"
 
 /***/ }),
 
 /***/ 277:
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"todoapp\">\n  <app-my-header [fish]=\"fish\" (add)=\"onAddLanded($event)\"></app-my-header>\n  <app-daily-catch [dailyCatch]=\"dailyCatch\" (toggleSold)=\"onToggleLandedSold($event)\"\n                 (remove)=\"onRemoveLanded($event)\"></app-daily-catch>\n  <app-my-footer [dailyCatch]=\"dailyCatch\"></app-my-footer>\n</section>\n"
+module.exports = "<div class=\"view\">\n  <input class=\"toggle\" type=\"checkbox\" (click)=\"toggleLandedSold(landed)\" [checked]=\"landed.sold\">\n  <label>{{landed.weight}} of {{landed.fish}}</label>\n  <button class=\"destroy\" (click)=\"removeLanded(landed)\"></button>\n</div>\n"
 
 /***/ }),
 
 /***/ 278:
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"main\" *ngIf=\"dailyCatch\">\n  <h2>Today's weather: {{dailyCatch.weather}}</h2>\n</section>\n<section class=\"main\" *ngIf=\"dailyCatch && dailyCatch.landed.length > 0\">\n  <ul class=\"todo-list\">\n    <li *ngFor=\"let landed of dailyCatch.landed\" [class.completed]=\"false\">\n      <app-landed\n        [landed]=\"landed\"\n        (toggleSold)=\"onToggleLandedSold($event)\"\n        (remove)=\"onRemoveLanded($event)\"></app-landed>\n    </li>\n  </ul>\n</section>\n"
+module.exports = "<footer class=\"footer\" *ngIf=\"dailyCatch && dailyCatch.landed.length > 0\">\n  <span class=\"catch-count\"><strong>{{dailyCatch.landed.length}}</strong> {{dailyCatch.landed.length == 1 ? 'catch' : 'catches'}} today</span>\n  <span class=\"catch-count right\"><strong>{{catchesSold()}}</strong> {{catchesSold() == 1 ? 'catch' : 'catches'}} sold</span>\n</footer>\n"
 
 /***/ }),
 
 /***/ 279:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"view\">\n  <input class=\"toggle\" type=\"checkbox\" (click)=\"toggleLandedSold(landed)\" [checked]=\"landed.sold\">\n  <label>{{landed.weight}} of {{landed.fish}}</label>\n  <button class=\"destroy\" (click)=\"removeLanded(landed)\"></button>\n</div>\n"
+module.exports = "<header class=\"header\">\n  <h1>Catch of the Day</h1>\n\n  <label for=\"fishSelect\">Select the type of fish below</label>\n  <select id=\"fishSelect\" [(ngModel)]=\"newLanded.fish\" (change)=\"changeFish(newLanded.fish)\">\n    <option *ngFor=\"let f of fish\" [ngValue]=\"f.name\">{{f.name}}</option>\n  </select>\n\n  <input class=\"new-landed\" placeholder=\"Enter the weight landed\" autofocus=\"\" [(ngModel)]=\"newLanded.weight\"\n         (keyup.enter)=\"addLanded()\">\n</header>\n"
 
 /***/ }),
 
-/***/ 280:
-/***/ (function(module, exports) {
+/***/ 309:
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<footer class=\"footer\" *ngIf=\"dailyCatch && dailyCatch.landed.length > 0\">\n  <span class=\"todo-count\"><strong>{{dailyCatch.landed.length}}</strong> {{dailyCatch.landed.length == 1 ? 'catch' : 'catches'}} today</span>\n  <span class=\"todo-count\"><strong>{{catchesSold()}}</strong> {{catchesSold() == 1 ? 'catch' : 'catches'}} sold</span>\n</footer>\n"
+module.exports = __webpack_require__(193);
 
-/***/ }),
-
-/***/ 281:
-/***/ (function(module, exports) {
-
-module.exports = "<header class=\"header\">\n  <h1>Catch of the Day</h1>\n\n  <select [(ngModel)]=\"newLanded.fish\" (change)=\"changeFish(newLanded.fish)\">\n    <option *ngFor=\"let f of fish\" [ngValue]=\"f.name\">{{f.name}}</option>\n  </select>\n\n  <input class=\"new-todo\" placeholder=\"Weight\" autofocus=\"\" [(ngModel)]=\"newLanded.weight\"\n         (keyup.enter)=\"addLanded()\">\n</header>\n"
 
 /***/ }),
 
-/***/ 31:
+/***/ 53:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -795,27 +804,18 @@ var DailyCatch = (function () {
 
 /***/ }),
 
-/***/ 311:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(193);
-
-
-/***/ }),
-
 /***/ 54:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__daily_catch__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(285);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -830,8 +830,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// Import RxJs required methods
-
 
 var DataService = (function () {
     // Resolve HTTP using the constructor
@@ -842,83 +840,48 @@ var DataService = (function () {
         this.apiPathFish = '/fish';
         this.apiPathCatch = '/catches';
         this.apiPathLanded = '/landed';
-        this.day = __WEBPACK_IMPORTED_MODULE_3_moment__().format('YYYY-MM-DD');
-        // Placeholder for last id so we can simulate auto-incrementing of id's
-        this.lastId = 0;
-        // Landed fish
-        this.landed = [];
+        this.day = __WEBPACK_IMPORTED_MODULE_2_moment__().format('YYYY-MM-DD');
     }
     DataService.prototype.getHeaders = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
         headers.append('Accept', 'application/json');
         return headers;
     };
-    // GET /fish
+    DataService.prototype.defaultLanded = function (landed) {
+        if (!landed.fish) {
+            landed.fish = 'Catfish';
+        }
+        if (!landed.weight) {
+            landed.weight = '5kg';
+        }
+        return landed;
+    };
+    // GET - Fetch the types of fish we support in our app
     DataService.prototype.getFish = function () {
         return this.http.get("" + this.apiRootUrl + this.apiPathFish)
             .map(function (res) { return res.json(); });
     };
-    // Fetch of todays dailyCatch
+    // GET - Fetch today's dailyCatch
     DataService.prototype.getDailyCatch = function () {
         return this.http.get("" + this.apiRootUrl + this.apiPathCatch + "/" + this.day)
             .map(function (res) { return res.json(); });
     };
-    // Simulate POST /catches
-    DataService.prototype.createDailyCatch = function (landed) {
-        this.dailyCatch = new __WEBPACK_IMPORTED_MODULE_2__daily_catch__["a" /* DailyCatch */]();
-        this.dailyCatch.weather = 'Sunny';
-        if (!landed.id) {
-            landed.id = (++this.lastId).toString();
-        }
-        this.dailyCatch.landed.push(landed);
-        this.dailyCatch.day = '2017-04-30';
-        return this.dailyCatch;
-    };
-    // Simulate PUT /catches
-    DataService.prototype.updateDailyCatch = function (landed) {
-        if (!landed.id) {
-            landed.id = (++this.lastId).toString();
-        }
-        this.dailyCatch.landed.push(landed);
-        return this.dailyCatch;
-    };
-    // Upsert of dailyCatch
+    // PUT - 'Upsert' of landed value on current dailyCatch
     DataService.prototype.landFish = function (landed) {
-        // TODO add form validation to the header component to force selection of fish before submit
-        if (!landed.fish) {
-            landed.fish = 'Catfish';
-        }
+        // TODO add form validation to the header component to force selection of fish and entry of (valid?) weight on submit
+        landed = this.defaultLanded(landed);
         return this.http.put("" + this.apiRootUrl + this.apiPathCatch + "/" + this.day + this.apiPathLanded, landed, { headers: this.getHeaders() })
             .map(function (res) { return res.json(); });
     };
-    // Simulate DELETE /landed/:id
-    DataService.prototype.deleteLandedById = function (id) {
-        this.dailyCatch.landed = this.dailyCatch.landed
-            .filter(function (landed) { return landed.id !== id; });
-        return this;
-    };
-    // Simulate GET /landed/:id
-    DataService.prototype.getLandedById = function (id) {
-        return this.dailyCatch.landed
-            .filter(function (landed) { return landed.id === id; })
-            .pop();
-    };
-    // Simulate PUT /landed/:id
-    DataService.prototype.updateLandedById = function (id, values) {
-        if (values === void 0) { values = {}; }
-        var landed = this.getLandedById(id);
-        if (!landed) {
-            return null;
-        }
-        Object.assign(landed, values);
-        return landed;
-    };
-    // Toggle landed sold
+    // PUT - Toggle landed sold property of specific landed on current dailyCatch
     DataService.prototype.toggleLandedSold = function (landed) {
-        var updatedLanded = this.updateLandedById(landed.id, {
-            sold: !landed.sold
-        });
-        return updatedLanded;
+        return this.http.put("" + this.apiRootUrl + this.apiPathCatch + "/" + this.day + this.apiPathLanded + "/" + landed._id, {}, { headers: this.getHeaders() })
+            .map(function (res) { return res.json(); });
+    };
+    // DELETE - Remove landed by identifier from current dailyCatch
+    DataService.prototype.deleteLandedById = function (id) {
+        return this.http.delete("" + this.apiRootUrl + this.apiPathCatch + "/" + this.day + this.apiPathLanded + "/" + id, { headers: this.getHeaders() })
+            .map(function (res) { return res.json(); });
     };
     return DataService;
 }());
@@ -950,5 +913,5 @@ var Landed = (function () {
 
 /***/ })
 
-},[311]);
+},[309]);
 //# sourceMappingURL=main.bundle.js.map
