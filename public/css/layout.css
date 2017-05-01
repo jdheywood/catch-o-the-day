@@ -2,9 +2,9 @@
 -------------------------------------------------- */
 body {
   padding-bottom: 40px;
-  color: #ffffff;
+  color: #6f8ab7;
   height: 100%;
-  background-color: #6f8ab7;
+  background-color: #ffffff;
   overflow-y: scroll; /* has to be scroll, not auto */
 }
 
@@ -38,7 +38,7 @@ body {
 }
 
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
-  background-color: #6f8ab7;
+  background-color: #ffffff;
 }
 
 .navbar-inverse .navbar-brand {
@@ -47,8 +47,8 @@ body {
 
 .navbar-inverse {
   color: #fff;
-  background-color: #6f8ab7; /*transparent;*/
-  border-color: #6f8ab7; /*transparent;*/
+  background-color: #ffffff; /*transparent;*/
+  border-color: #ffffff; /*transparent;*/
   opacity: 0.9;
 }
 
@@ -60,15 +60,15 @@ body {
 .navbar-inverse .navbar-nav>.active>a,
 .navbar-inverse .navbar-nav>.active>a:hover,
 .navbar-inverse .navbar-nav>.active>a:focus {
-  color: #ffffff;
-  background-color: #6f8ab7;
+  color: #6f8ab7;
+  background-color: #ffffff;
 }
 
 .navbar-inverse .navbar-nav>.open>a,
 .navbar-inverse .navbar-nav>.open>a:hover,
 .navbar-inverse .navbar-nav>.open>a:focus {
-  color: #ffffff;
-  background-color: #6f8ab7;
+  color: #6f8ab7;
+  background-color: #ffffff;
 }
 
 .navbar-inverse .navbar-toggle {
@@ -105,12 +105,12 @@ ul.nav.navbar-nav.pep li a {
   padding: 15px 15px;
   line-height: 20px;
   font-size: 30px;
-  color: #fff;
+  color: #6f8ab7;
 }
 
 .navbar-brand span {
   font-size: 30px;
-  color: #fff;
+  color: #6f8ab7;
 }
 
 .navbar-help span:hover,
@@ -119,7 +119,7 @@ ul.nav.navbar-nav.pep li a {
 .navbar-help span:active,
 .navbar-help span:before,
 .navbar-help span:after {
-  color: #fff;
+  color: #6f8ab7;
 }
 
 span.pep-title {
@@ -171,29 +171,29 @@ span.pep-title {
 
 .divider {
   margin: 5px 0; /* Space out the Bootstrap <hr> more */
-  border-color: #6f8ab7; /*transparent;*/
+  border-color: #ffffff; /*transparent;*/
 }
 
 /* Access, forms etc
 ----------------------------------- */
 .access-heading {
-  color: #fff;
+  color: #6f8ab7;
 }
 
 h3.error-heading {
-  color: #fff;
+  color: #6f8ab7;
   margin-top: 100px;
   text-align: center;
 }
 
 .input-label {
-  color: #fff;
+  color: #6f8ab7;
 }
 
 .btn-access {
   background-color: #7c92b3;
   border-color: #7c92b3;
-  color: #fff;
+  color: #6f8ab7;
   width: 100%;
 }
 
@@ -371,7 +371,7 @@ body {
   position: absolute;
   bottom: -5%;
   width: 100%;
-  background-color: #6f8ab7;
+  background-color: #ffffff;
 }
 
 .footer.white {
@@ -436,7 +436,7 @@ h3.assessment, h3.information {
 .row.content.assessments,
 .row.content.controls,
 .row.content.assessment-detail {
-  background-color: #6f8ab7;
+  background-color: #ffffff;
 }
 .row.content.links {
   padding-bottom: 10px;
@@ -524,7 +524,7 @@ img.doughnut-right {
   height: 80px;
   display: block;
   border-bottom: 3px;
-  border-bottom-color: #6f8ab7;
+  border-bottom-color: #ffffff;
   border-bottom-style: solid;
   text-align: left;
 }
@@ -620,13 +620,13 @@ img.doughnut-right {
 }
 
 .row.content.assessment-detail ul li.answers {
-  background-color: #6f8ab7;
+  background-color: #ffffff;
 }
 
 .row.content.assessment-detail ul.answers {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
-  border-bottom: #6f8ab7;
+  border-bottom: #ffffff;
   border-bottom-style: solid;
   margin-bottom: 5px;
   padding-bottom: 5px;
@@ -755,7 +755,7 @@ img.loading {
 }
 
 .navbar-static-top {
-  background-color: #6f8ab7;
+  background-color: #ffffff;
   border-style: none;
   margin-bottom: 0px;
 }
