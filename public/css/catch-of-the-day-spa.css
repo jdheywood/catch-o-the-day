@@ -90,7 +90,7 @@ body {
 	font-size: 24px;
 	border-style: dotted;
 	padding: 10px;
-	color: rgba(77, 77, 77, 0.50);
+	color: rgba(77, 77, 77, 0.90);
 }
 
 .catch-of-the-day-app label {
@@ -99,7 +99,7 @@ body {
 	font-weight: 200;
 	border-style: none;
 	padding: 10px;
-	color: rgba(77, 77, 77, 0.50);
+	color: rgba(77, 77, 77, 0.90);
 	text-align: center;
 }
 
