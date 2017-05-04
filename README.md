@@ -13,34 +13,6 @@ ES6 syntax support and tooling via [Babel]
 + https://github.com/jdheywood/catch-o-the-day
 + `cd catch-o-the-day`
 
-## Modify the `/config/secretConfig.json` file
-
-Config settings used by the API that are deemed sensitive are hidden behind the `/src/utils/environment.js` module. 
-This looks first for environment vars for the settings it needs then falls back to the secret config file. 
-This is quite a nice pattern as it allows for quick changes during development and the protection of config data in production. 
-As this repository is public the secretConfig file has been sanitised, so you will need to specify your own values.
- 
-```json
-{
-  "dbConnection": {
-    "protocol": "mongodb",
-    "username": "your-username",
-    "password": "your-password",
-    "server": "host:port of your mongo server (I recommend mLabs.com sandbox)",
-    "database": "your-database-name"
-  },
-  "sessionSecretKey": "your-secret-session-key",
-  "slackWebHookUrl": "https://hooks.slack.com/services/your/webhook/url",
-  "weather": {
-    "apiKey": "your-api-key-here"
-  }
-}
-```
-Alternatively you can specify this data on the command line as environment vars when you start your application, 
-however there are more than a couple of settings which makes this prone to typos. 
-I recommend you set up your own secretConfig file to save the pain, just beware of committing the settings.
-
-
 ## How to run the app
 
 + Install dependencies using `npm install` command (locally, a node_modules directory will be created)
