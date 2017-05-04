@@ -1,6 +1,5 @@
 'use strict';
 
-import q from 'q';
 import { Fish } from '../models/fish';
 
 /**
@@ -12,8 +11,8 @@ module.exports = {
   /**
    * @returns {array} fish - All types of fish supported by the system
    */
-  getAllFish() {
-    return q(Fish.find({}).sort({ 'name': 'asc'}).exec());
+  async getAllFish() {
+    return await Fish.find({}).sort({ 'name': 'asc'}).exec();
   },
 
 };
